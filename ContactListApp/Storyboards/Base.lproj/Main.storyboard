@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pfg-65-b79">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--First-->
         <scene sceneID="JWW-Jf-1gg">
             <objects>
                 <tableViewController id="eu8-V7-bH5" customClass="ContactListTableViewController" customModule="ContactListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5ZA-G2-vOc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="wPw-9G-XfT" style="IBUITableViewCellStyleDefault" id="5ZA-G2-vOc">
                                 <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ZA-G2-vOc" id="ovd-Eg-Vws">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wPw-9G-XfT">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gST-VY-Gt3" kind="show" id="e8s-ot-zbM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,10 +45,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="First" image="person.crop.rectangle" catalog="system" id="y3C-0f-buC"/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="DNz-1N-rkx"/>
-                    <connections>
-                        <segue destination="gST-VY-Gt3" kind="show" id="Pbe-Qm-oks"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="DNz-1N-rkx"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVv-JZ-nLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,8 +55,8 @@
         <scene sceneID="B4D-jE-SwH">
             <objects>
                 <navigationController id="Pfg-65-b79" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sH5-7W-AIe">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="sH5-7W-AIe">
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -57,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="-123" y="-19"/>
         </scene>
-        <!--Contact Details View Controller-->
+        <!--Name-->
         <scene sceneID="fyt-7c-Awi">
             <objects>
                 <viewController id="gST-VY-Gt3" customClass="ContactDetailsViewController" customModule="ContactListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="6Zb-xm-tKi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IDi-83-Bov"/>
+                    <navigationItem key="navigationItem" title="Name" id="IDi-83-Bov"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx8-Fq-dAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,6 +120,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vw-6j-OhE">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="secondaryLabelColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5UM-We-u1a" kind="relationship" relationship="rootViewController" id="Hei-4s-NSR"/>
@@ -119,12 +130,12 @@
             </objects>
             <point key="canvasLocation" x="1675" y="714"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Persons List-->
         <scene sceneID="sZX-Ce-Zqh">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Kzp-Vl-Kz3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Rye-Xk-gGc"/>
+                    <navigationItem key="navigationItem" title="Persons List" id="Rye-Xk-gGc"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fca-7i-oQT">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,6 +153,9 @@
     <resources>
         <image name="person.crop.rectangle" catalog="system" width="128" height="93"/>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
