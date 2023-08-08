@@ -48,12 +48,12 @@ extension Person {
     }
     
     static func getPersonsNumber() -> String {
-        var phoneNumber: String = dataSource.phoneNumbers.randomElement()!
+        let phoneNumber: String = dataSource.phoneNumbers.randomElement()!
         return phoneNumber
     }
     
     static func getPersonsEmail() -> String {
-        var email: String = dataSource.emails.randomElement()!
+        let email: String = dataSource.emails.randomElement()!
         return email
     }
 }

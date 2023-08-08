@@ -9,21 +9,19 @@ import UIKit
 
 class ContactDetailsViewController: UIViewController {
 
+    // MARK: IB Outlets
+    @IBOutlet var contactsPhoneLabel: UILabel!
+    @IBOutlet var contactsEmailLabel: UILabel!
+    
+    // MARK: Public properties
+    var contact: Person!
+    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        contactsPhoneLabel.text = contact.phoneNumber
+        contactsEmailLabel.text = contact.email
+        navigationItem.title = contact.fullname
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
