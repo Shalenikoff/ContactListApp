@@ -9,7 +9,6 @@ import Foundation
 
 
 struct Person {
-    static var dataSource = DataManager()
     
     let name: String
     let surname: String
@@ -21,39 +20,18 @@ struct Person {
     }
     
     static func getPersonsList() -> [Person] {
+        let dataSource = DataManager()
         var persons: [Person] = []
         
-        for _ in persons {
+        for _ in 1...dataSource.emails.count {
             let person = Person(
-                name: Person.getPersonsName(),
-                surname: Person.getPersonsSurname(),
-                phoneNumber: Person.getPersonsNumber(),
-                email: Person.getPersonsEmail()
+                name: dataSource.names.randomElement()!,
+                surname: dataSource.surnames.randomElement()!,
+                phoneNumber: dataSource.phoneNumbers.randomElement()!,
+                email: dataSource.emails.randomElement()!
                 )
             persons.append(person)
         }
         return persons
-    }
-}
-
-extension Person {
-    static func getPersonsName() -> String {
-        let names = dataSource.names.randomElement()!
-        return names
-    }
-    
-    static func getPersonsSurname() -> String {
-        let surnames = dataSource.surnames.randomElement()!
-        return surnames
-    }
-    
-    static func getPersonsNumber() -> String {
-        let phoneNumber: String = dataSource.phoneNumbers.randomElement()!
-        return phoneNumber
-    }
-    
-    static func getPersonsEmail() -> String {
-        let email: String = dataSource.emails.randomElement()!
-        return email
     }
 }
