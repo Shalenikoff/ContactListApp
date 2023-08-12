@@ -38,10 +38,8 @@ class SectionsContactTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             content.text = person.phoneNumber
-            content.image = UIImage(systemName: "Contacts.phone.rawValue")
         default:
             content.text = person.email
-            content.image = UIImage(systemName: "Contacts.email.rawValue")
         }
         
         cell.contentConfiguration = content
