@@ -20,15 +20,27 @@ struct Person {
     }
     
     static func getPersonsList() -> [Person] {
-        let dataSource = DataManager()
+    
         var persons: [Person] = []
         
-        for _ in 1...dataSource.emails.count {
+        let names = DataManager.shared.names.shuffled()
+        let surnames = DataManager.shared.surnames.shuffled()
+        let phoneNumbers = DataManager.shared.phoneNumbers.shuffled()
+        let emails = DataManager.shared.emails.shuffled()
+        
+        let countOfIterations = min(
+            names.count,
+            surnames.count,
+            phoneNumbers.count,
+            emails.count
+        )
+        
+        for index in 0..<countOfIterations {
             let person = Person(
-                name: dataSource.names.randomElement()!,
-                surname: dataSource.surnames.randomElement()!,
-                phoneNumber: dataSource.phoneNumbers.randomElement()!,
-                email: dataSource.emails.randomElement()!
+                name: names[index],
+                surname: surnames[index],
+                phoneNumber: phoneNumbers[index],
+                email: emails[index]
                 )
             persons.append(person)
         }
